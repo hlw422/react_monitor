@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, MoreThanOrEqual } from 'typeorm';
 import { Metric } from '../../database/entities/metric.entity';
 import { WsGateway } from '../ws/ws.gateway';
 
@@ -55,7 +55,7 @@ export class MetricService {
       where: {
         serverId,
         metricType: metricType as any,
-        timestamp: { $gte: startTime } as any,
+        timestamp: MoreThanOrEqual(startTime),
       },
       order: { timestamp: 'ASC' },
     });

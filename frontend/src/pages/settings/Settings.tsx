@@ -72,8 +72,7 @@ export default function Settings() {
   const { data: channels } = useQuery({
     queryKey: ['notifications', 'channels'],
     queryFn: async () => {
-      const response = await api.get('/notifications/channels');
-      return response.data as NotificationChannel[];
+      return await api.get('/notifications/channels') as NotificationChannel[];
     },
     enabled: activeTab === 'notifications',
   });

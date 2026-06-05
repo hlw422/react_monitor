@@ -13,6 +13,7 @@ import { LogModule } from './modules/log/log.module';
 import { NotificationModule } from './modules/notification/notification.module';
 import { UserModule } from './modules/user/user.module';
 import { RoleModule } from './modules/role/role.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { User } from './database/entities/user.entity';
 import { Role } from './database/entities/role.entity';
 import { Server } from './database/entities/server.entity';
@@ -52,6 +53,7 @@ import { Notification } from './database/entities/notification.entity';
     NotificationModule,
     UserModule,
     RoleModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -50,8 +50,7 @@ export default function BigScreen() {
   const { data: dashboardData } = useQuery({
     queryKey: ['dashboard', 'stats'],
     queryFn: async () => {
-      const response = await api.get('/dashboard/stats');
-      return response.data;
+      return await api.get('/dashboard/stats');
     },
     refetchInterval: 5000,
   });
@@ -60,8 +59,7 @@ export default function BigScreen() {
   const { data: alertsData } = useQuery({
     queryKey: ['alerts', 'recent'],
     queryFn: async () => {
-      const response = await api.get('/alerts', { params: { limit: 20 } });
-      return response.data;
+      return await api.get('/alerts', { params: { limit: 20 } });
     },
     refetchInterval: 5000,
   });
@@ -70,8 +68,7 @@ export default function BigScreen() {
   const { data: serversData } = useQuery({
     queryKey: ['servers', 'online'],
     queryFn: async () => {
-      const response = await api.get('/servers', { params: { status: 'online' } });
-      return response.data;
+      return await api.get('/servers', { params: { status: 'online' } });
     },
     refetchInterval: 10000,
   });
@@ -88,10 +85,18 @@ export default function BigScreen() {
         api.get(`/metrics/timeseries/${serverId}/network`, { params: { minutes: 30 } }),
       ]);
       const formatTime = (ts: string) => new Date(ts).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
-      setCpuData(cpuRes.data.map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
-      setMemData(memRes.data.map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
-      setNetworkInData(netRes.data.map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
-      setNetworkOutData(netRes.data.map((m: any) => ({ time: formatTime(m.timestamp), value: m.value * 0.3 })));
+      
+      // 数据采样：如果数据点超过30个，均匀采样到30个
+      const sampleData = (data: any[], maxPoints = 30) => {
+        if (data.length <= maxPoints) return data;
+        const step = Math.floor(data.length / maxPoints);
+        return data.filter((_, i) => i % step === 0).slice(0, maxPoints);
+      };
+      
+      setCpuData(sampleData(cpuRes).map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
+      setMemData(sampleData(memRes).map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
+      setNetworkInData(sampleData(netRes).map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
+      setNetworkOutData(sampleData(netRes).map((m: any) => ({ time: formatTime(m.timestamp), value: m.value * 0.3 })));
       return true;
     },
     enabled: !!serversData && serversData.length > 0,
@@ -122,8 +127,8 @@ export default function BigScreen() {
   }, [dashboardData]);
 
   useEffect(() => {
-    if (alertsData?.items) {
-      setAlerts(alertsData.items);
+    if (alertsData) {
+      setAlerts(Array.isArray(alertsData) ? alertsData : (alertsData.items || []));
     }
   }, [alertsData]);
 
@@ -228,18 +233,35 @@ export default function BigScreen() {
 
     return {
       backgroundColor: 'transparent',
-      grid: { top: 40, right: 20, bottom: 30, left: 60 },
+      grid: { top: 35, right: 15, bottom: 25, left: 50, containLabel: false },
       legend: {
         data: ['Download', 'Upload'],
-        textStyle: { color: '#94A3B8' },
+        textStyle: { color: '#94A3B8', fontSize: 11 },
         right: 0,
         top: 0,
+        itemWidth: 12,
+        itemHeight: 10,
+      },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: '#1E293B',
+        borderColor: '#334155',
+        textStyle: { color: '#E2E8F0', fontSize: 12 },
+        formatter: (params: any) => {
+          let result = `<div style="font-weight:600;margin-bottom:4px">${params[0].axisValue}</div>`;
+          params.forEach((p: any) => {
+            const val = p.value >= 1024 ? `${(p.value / 1024).toFixed(1)} KB/s` : `${p.value.toFixed(0)} B/s`;
+            result += `<div style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:${p.color}"></span>${p.seriesName}: ${val}</div>`;
+          });
+          return result;
+        },
       },
       xAxis: {
         type: 'category',
         data: times,
         axisLine: { lineStyle: { color: '#334155' } },
-        axisLabel: { color: '#64748B', fontSize: 10 },
+        axisLabel: { color: '#64748B', fontSize: 10, interval: 'auto', rotate: 0 },
+        axisTick: { show: false },
       },
       yAxis: {
         type: 'value',
@@ -248,23 +270,29 @@ export default function BigScreen() {
         axisLabel: {
           color: '#64748B',
           fontSize: 10,
-          formatter: (value: number) => `${(value / 1024).toFixed(1)} KB/s`,
+          formatter: (value: number) => {
+            if (value >= 1048576) return `${(value / 1048576).toFixed(1)} MB`;
+            if (value >= 1024) return `${(value / 1024).toFixed(0)} KB`;
+            return `${value}`;
+          },
         },
       },
       series: [
         {
           name: 'Download',
           type: 'bar',
+          stack: 'total',
           data: inValues,
-          itemStyle: { color: '#8B5CF6', borderRadius: [4, 4, 0, 0] },
-          barWidth: '30%',
+          itemStyle: { color: '#8B5CF6', borderRadius: [0, 0, 0, 0] },
+          barWidth: '40%',
         },
         {
           name: 'Upload',
           type: 'bar',
+          stack: 'total',
           data: outValues,
           itemStyle: { color: '#06B6D4', borderRadius: [4, 4, 0, 0] },
-          barWidth: '30%',
+          barWidth: '40%',
         },
       ],
     };
@@ -427,14 +455,14 @@ export default function BigScreen() {
           </div>
 
           {/* Network Traffic */}
-          <div className="glass rounded-xl p-6 flex-1">
-            <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+          <div className="glass rounded-xl p-6 h-[50%]">
+            <h3 className="text-lg font-semibold text-foreground mb-2 flex items-center gap-2">
               <Wifi className="w-5 h-5 text-purple-400" />
               Network Traffic
             </h3>
             <ReactECharts
               option={getNetworkChartOption()}
-              style={{ height: '85%' }}
+              style={{ height: '90%' }}
               opts={{ renderer: 'canvas' }}
             />
           </div>

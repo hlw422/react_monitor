@@ -32,8 +32,7 @@ export function useMetrics({
   const { data: latestMetrics, isLoading: latestLoading } = useQuery({
     queryKey: ['metrics', 'latest', serverId],
     queryFn: async () => {
-      const response = await api.get(`/metrics/latest/${serverId}`);
-      return response.data;
+      return await api.get(`/metrics/latest/${serverId}`);
     },
     enabled: !!serverId,
     refetchInterval: autoRefresh ? refreshInterval : false,
@@ -43,10 +42,9 @@ export function useMetrics({
   const { data: timeSeriesData, isLoading: seriesLoading } = useQuery({
     queryKey: ['metrics', 'timeseries', serverId, metricType, timeRange],
     queryFn: async () => {
-      const response = await api.get(`/metrics/timeseries/${serverId}/${metricType}`, {
+      return await api.get(`/metrics/timeseries/${serverId}/${metricType}`, {
         params: { minutes: timeRange },
-      });
-      return response.data as TimeSeriesData[];
+      }) as TimeSeriesData[];
     },
     enabled: !!serverId && !!metricType,
     refetchInterval: autoRefresh ? refreshInterval : false,

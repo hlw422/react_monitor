@@ -96,12 +96,12 @@ export default function Settings() {
 
   const renderGeneralSettings = () => (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-foreground">General Settings</h3>
+      <h3 className="text-lg font-semibold text-foreground">{t('settings.generalSettings')}</h3>
       
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-muted-foreground mb-2">
-            Platform Name
+            {t('settings.platformName')}
           </label>
           <Input
             type="text"
@@ -111,33 +111,33 @@ export default function Settings() {
 
         <div>
           <label className="block text-sm font-medium text-muted-foreground mb-2">
-            Default Refresh Interval
+            {t('settings.refreshInterval')}
           </label>
           <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-            <option value="1">1 second</option>
-            <option value="3">3 seconds</option>
-            <option value="5" selected>5 seconds</option>
-            <option value="10">10 seconds</option>
-            <option value="30">30 seconds</option>
+            <option value="1">1 {t('settings.second')}</option>
+            <option value="3">3 {t('settings.seconds')}</option>
+            <option value="5" selected>5 {t('settings.seconds')}</option>
+            <option value="10">10 {t('settings.seconds')}</option>
+            <option value="30">30 {t('settings.seconds')}</option>
           </select>
         </div>
 
         <div>
           <label className="block text-sm font-medium text-muted-foreground mb-2">
-            Data Retention Period
+            {t('settings.dataRetention')}
           </label>
           <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-            <option value="7">7 days</option>
-            <option value="30" selected>30 days</option>
-            <option value="90">90 days</option>
-            <option value="365">1 year</option>
+            <option value="7">7 {t('settings.days')}</option>
+            <option value="30" selected>30 {t('settings.days')}</option>
+            <option value="90">90 {t('settings.days')}</option>
+            <option value="365">1 {t('settings.year')}</option>
           </select>
         </div>
 
         <div className="flex items-center justify-between p-4 bg-dark-800 rounded-lg">
           <div>
-            <p className="text-sm font-medium text-foreground">Enable Real-time Updates</p>
-            <p className="text-xs text-muted-foreground">Receive live metric updates via WebSocket</p>
+            <p className="text-sm font-medium text-foreground">{t('settings.realtimeUpdates')}</p>
+            <p className="text-xs text-muted-foreground">{t('settings.receiveRealtimeDesc')}</p>
           </div>
           <button className="text-green-400">
             <ToggleRight className="w-8 h-8" />
@@ -146,7 +146,7 @@ export default function Settings() {
 
         <button className="flex items-center gap-2 px-4 py-2.5 bg-primary-500 hover:bg-primary-600 text-primary-foreground rounded-lg text-sm font-medium transition-colors">
           <Save className="w-4 h-4" />
-          Save Changes
+          {t('settings.saveChanges')}
         </button>
       </div>
     </div>
@@ -155,15 +155,15 @@ export default function Settings() {
   const renderNotificationSettings = () => (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-foreground">Notification Channels</h3>
+        <h3 className="text-lg font-semibold text-foreground">{t('settings.notificationChannels')}</h3>
         <button className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-primary-foreground rounded-lg text-sm font-medium transition-colors">
           <Plus className="w-4 h-4" />
-          Add Channel
+          {t('settings.addChannel')}
         </button>
       </div>
 
       <p className="text-sm text-muted-foreground">
-        Configure notification channels to receive alerts. You can enable or disable channels and test them.
+        {t('settings.configureChannelsDesc')}
       </p>
 
       <div className="space-y-4">
@@ -213,7 +213,7 @@ export default function Settings() {
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-700 text-muted-foreground hover:text-foreground text-xs font-medium transition-colors"
                   >
                     <TestTube className="w-3.5 h-3.5" />
-                    Test
+                    {t('settings.test')}
                   </button>
 
                   <button
@@ -241,7 +241,7 @@ export default function Settings() {
                 <div className="mt-6 pt-6 border-t border-dark-600 space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-muted-foreground mb-2">
-                      Channel Name
+                      {t('settings.channelName')}
                     </label>
                     <Input
                       type="text"
@@ -254,7 +254,7 @@ export default function Settings() {
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <label className="block text-sm font-medium text-muted-foreground mb-2">
-                            SMTP Host
+                            {t('settings.smtpHost')}
                           </label>
                           <Input
                             type="text"
@@ -263,7 +263,7 @@ export default function Settings() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-muted-foreground mb-2">
-                            SMTP Port
+                            {t('settings.smtpPort')}
                           </label>
                           <Input
                             type="number"
@@ -273,7 +273,7 @@ export default function Settings() {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-muted-foreground mb-2">
-                          Recipients (comma separated)
+                          {t('settings.recipientsHint')}
                         </label>
                         <Input
                           type="text"
@@ -286,7 +286,7 @@ export default function Settings() {
                   {channel.channel === 'webhook' && (
                     <div>
                       <label className="block text-sm font-medium text-muted-foreground mb-2">
-                        Webhook URL
+                        {t('settings.webhookUrl')}
                       </label>
                       <Input
                         type="url"
@@ -298,7 +298,7 @@ export default function Settings() {
                   {(channel.channel === 'wechat' || channel.channel === 'dingtalk') && (
                     <div>
                       <label className="block text-sm font-medium text-muted-foreground mb-2">
-                        Webhook URL
+                        {t('settings.webhookUrl')}
                       </label>
                       <Input
                         type="url"
@@ -310,14 +310,14 @@ export default function Settings() {
                   <div className="flex items-center gap-3">
                     <button className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-primary-foreground rounded-lg text-sm font-medium transition-colors">
                       <Save className="w-4 h-4" />
-                      Save
+                      {t('common.save')}
                     </button>
                     <button
                       onClick={() => setEditingChannel(null)}
                       className="flex items-center gap-2 px-4 py-2 bg-dark-700 hover:bg-dark-600 text-muted-foreground rounded-lg text-sm font-medium transition-colors"
                     >
                       <X className="w-4 h-4" />
-                      Cancel
+                      {t('common.cancel')}
                     </button>
                   </div>
                 </div>
@@ -332,10 +332,10 @@ export default function Settings() {
   const renderUserManagement = () => (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-foreground">User Management</h3>
+        <h3 className="text-lg font-semibold text-foreground">{t('settings.userManagement')}</h3>
         <button className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-primary-foreground rounded-lg text-sm font-medium transition-colors">
           <Plus className="w-4 h-4" />
-          Add User
+          {t('settings.addUser')}
         </button>
       </div>
 
@@ -345,19 +345,19 @@ export default function Settings() {
             <thead>
               <tr className="border-b border-dark-600">
                 <th className="px-6 py-4 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  User
+                  {t('settings.user')}
                 </th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Email
+                  {t('common.email')}
                 </th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Role
+                  {t('settings.role')}
                 </th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Status
+                  {t('common.status')}
                 </th>
                 <th className="px-6 py-4 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Actions
+                  {t('common.actions')}
                 </th>
               </tr>
             </thead>
@@ -492,7 +492,7 @@ export default function Settings() {
       </div>
       <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
       <p className="text-muted-foreground max-w-md mx-auto">
-        Configure {title.toLowerCase()} settings for your monitoring platform.
+        {t('settings.configureDesc', { title: title.toLowerCase() })}
       </p>
     </div>
   );
@@ -506,11 +506,11 @@ export default function Settings() {
       case 'users':
         return renderUserManagement();
       case 'security':
-        return renderPlaceholder('Security Settings');
+        return renderPlaceholder(t('settings.securitySettings'));
       case 'internationalization':
         return renderLanguageSettings();
       default:
-        return renderPlaceholder('Settings');
+        return renderPlaceholder(t('settings.title'));
     }
   };
 
@@ -518,8 +518,8 @@ export default function Settings() {
     <div className="space-y-6">
       {/* Page header */}
       <div>
-        <h2 className="text-2xl font-bold text-foreground">Settings</h2>
-        <p className="text-muted-foreground mt-1">Configure system settings and preferences</p>
+        <h2 className="text-2xl font-bold text-foreground">{t('settings.title')}</h2>
+        <p className="text-muted-foreground mt-1">{t('settings.subtitle')}</p>
       </div>
 
       {/* Settings layout */}

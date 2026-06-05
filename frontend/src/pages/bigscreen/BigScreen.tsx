@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import ReactECharts from 'echarts-for-react';
 import {
   Maximize,
@@ -27,6 +28,7 @@ const levelColors: Record<string, string> = {
 };
 
 export default function BigScreen() {
+  const { t } = useTranslation();
   const { on } = useSocketEvents();
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -235,7 +237,7 @@ export default function BigScreen() {
       backgroundColor: 'transparent',
       grid: { top: 35, right: 15, bottom: 25, left: 50, containLabel: false },
       legend: {
-        data: ['Download', 'Upload'],
+        data: [t('bigscreen.download'), t('bigscreen.upload')],
         textStyle: { color: '#94A3B8', fontSize: 11 },
         right: 0,
         top: 0,
@@ -279,7 +281,7 @@ export default function BigScreen() {
       },
       series: [
         {
-          name: 'Download',
+          name: t('bigscreen.download'),
           type: 'bar',
           stack: 'total',
           data: inValues,
@@ -287,7 +289,7 @@ export default function BigScreen() {
           barWidth: '40%',
         },
         {
-          name: 'Upload',
+          name: t('bigscreen.upload'),
           type: 'bar',
           stack: 'total',
           data: outValues,
@@ -323,8 +325,8 @@ export default function BigScreen() {
         radius: ['40%', '60%'],
         center: ['50%', '45%'],
         data: [
-          { value: stats.onlineServers, name: `Online (${stats.onlineServers})`, itemStyle: { color: '#22C55E' } },
-          { value: stats.totalServers - stats.onlineServers, name: `Offline (${stats.totalServers - stats.onlineServers})`, itemStyle: { color: '#EF4444' } },
+          { value: stats.onlineServers, name: `${t('common.online')} (${stats.onlineServers})`, itemStyle: { color: '#22C55E' } },
+          { value: stats.totalServers - stats.onlineServers, name: `${t('common.offline')} (${stats.totalServers - stats.onlineServers})`, itemStyle: { color: '#EF4444' } },
         ],
         label: {
           show: true,
@@ -376,7 +378,7 @@ export default function BigScreen() {
           center: ['50%', '42%'],
           data: levels.map((level, i) => ({
             value: counts[i],
-            name: `${level.charAt(0).toUpperCase() + level.slice(1)} (${counts[i]})`,
+            name: `${t(`common.${level}`)} (${counts[i]})`,
             itemStyle: { color: levelColors[level] },
           })),
           label: {
@@ -409,7 +411,7 @@ export default function BigScreen() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-            运维监控中心
+            {t('bigscreen.title')}
           </h1>
           <div className="flex items-center gap-2 px-3 py-1.5 bg-dark-800 rounded-lg border border-dark-600">
             <Clock className="w-4 h-4 text-primary-400" />
@@ -422,7 +424,7 @@ export default function BigScreen() {
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 px-3 py-1.5 bg-dark-800 rounded-lg border border-dark-600">
             <Activity className="w-4 h-4 text-green-400 animate-pulse" />
-            <span className="text-sm text-foreground">Live</span>
+            <span className="text-sm text-foreground">{t('bigscreen.live')}</span>
           </div>
           <button
             onClick={toggleFullscreen}
@@ -436,10 +438,10 @@ export default function BigScreen() {
       {/* Stats cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {[
-          { icon: Server, label: 'Servers', value: stats.onlineServers, total: stats.totalServers, color: 'text-blue-400', bg: 'bg-blue-500/10' },
-          { icon: Cpu, label: 'CPU Avg', value: `${stats.avgCpuUsage.toFixed(1)}%`, color: 'text-green-400', bg: 'bg-green-500/10' },
-          { icon: HardDrive, label: 'Memory Avg', value: `${stats.avgMemoryUsage.toFixed(1)}%`, color: 'text-purple-400', bg: 'bg-purple-500/10' },
-          { icon: AlertTriangle, label: 'Active Alerts', value: stats.activeAlerts, color: 'text-red-400', bg: 'bg-red-500/10' },
+          { icon: Server, label: t('bigscreen.servers'), value: `${stats.onlineServers}/${stats.totalServers}`, color: 'text-blue-400', bg: 'bg-blue-500/10' },
+          { icon: Cpu, label: t('bigscreen.cpuAvg'), value: `${stats.avgCpuUsage.toFixed(1)}%`, color: 'text-green-400', bg: 'bg-green-500/10' },
+          { icon: HardDrive, label: t('bigscreen.memoryAvg'), value: `${stats.avgMemoryUsage.toFixed(1)}%`, color: 'text-purple-400', bg: 'bg-purple-500/10' },
+          { icon: AlertTriangle, label: t('bigscreen.activeAlerts'), value: stats.activeAlerts, color: 'text-red-400', bg: 'bg-red-500/10' },
         ].map((stat, i) => (
           <div key={i} className="glass rounded-xl p-4">
             <div className="flex items-center justify-between mb-3">
@@ -449,9 +451,6 @@ export default function BigScreen() {
               <span className="text-xs text-muted-foreground">{stat.label}</span>
             </div>
             <p className="text-2xl font-bold text-foreground">{stat.value}</p>
-            {stat.total && (
-              <p className="text-xs text-muted-foreground mt-1">of {stat.total} total</p>
-            )}
           </div>
         ))}
       </div>
@@ -464,7 +463,7 @@ export default function BigScreen() {
           <div className="glass rounded-xl p-4 lg:p-6 min-h-[280px] lg:h-[45%]">
             <h3 className="text-base lg:text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
               <Server className="w-5 h-5 text-primary-400" />
-              Server Distribution
+              {t('bigscreen.serverDistribution')}
             </h3>
             <div className="h-[220px] lg:h-[85%]">
               <ReactECharts
@@ -479,7 +478,7 @@ export default function BigScreen() {
           <div className="glass rounded-xl p-4 lg:p-6 min-h-[280px] lg:flex-1">
             <h3 className="text-base lg:text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-yellow-400" />
-              Alert Distribution
+              {t('bigscreen.alertDistribution')}
             </h3>
             <div className="h-[220px] lg:h-[80%]">
               <ReactECharts
@@ -497,7 +496,7 @@ export default function BigScreen() {
           <div className="glass rounded-xl p-4 lg:p-6 min-h-[280px] lg:h-[50%]">
             <h3 className="text-base lg:text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-green-400" />
-              CPU & Memory Trend
+              {t('bigscreen.cpuMemoryTrend')}
             </h3>
             <div className="h-[220px] lg:h-[85%]">
               <ReactECharts
@@ -512,7 +511,7 @@ export default function BigScreen() {
           <div className="glass rounded-xl p-4 lg:p-6 min-h-[280px] lg:h-[50%]">
             <h3 className="text-base lg:text-lg font-semibold text-foreground mb-2 flex items-center gap-2">
               <Wifi className="w-5 h-5 text-purple-400" />
-              Network Traffic
+              {t('bigscreen.networkTraffic')}
             </h3>
             <div className="h-[220px] lg:h-[90%]">
               <ReactECharts
@@ -530,11 +529,11 @@ export default function BigScreen() {
           <div className="glass rounded-xl p-4 lg:p-6 min-h-[280px] lg:h-[45%]">
             <h3 className="text-base lg:text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-red-400" />
-              Real-time Alerts
+              {t('bigscreen.realtimeAlerts')}
             </h3>
             <div className="space-y-2 overflow-y-auto max-h-[200px] lg:max-h-[calc(100%-40px)]">
               {alerts.length === 0 ? (
-                <div className="text-center py-8 text-muted-foreground">No recent alerts</div>
+                <div className="text-center py-8 text-muted-foreground">{t('bigscreen.noRecentAlerts')}</div>
               ) : (
                 alerts.slice(0, 10).map((alert, i) => (
                   <div
@@ -569,7 +568,7 @@ export default function BigScreen() {
           <div className="glass rounded-xl p-4 lg:p-6 lg:flex-1">
             <h3 className="text-base lg:text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
               <Activity className="w-5 h-5 text-cyan-400" />
-              Key Metrics
+              {t('bigscreen.keyMetrics')}
             </h3>
             <div className="grid grid-cols-2 gap-4">
               {[

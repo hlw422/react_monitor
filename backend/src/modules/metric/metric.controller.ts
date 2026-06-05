@@ -8,6 +8,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { MetricService } from './metric.service';
+import { MetricCollectorService } from './metric-collector.service';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { ApiTags, ApiOperation, ApiQuery, ApiBearerAuth } from '@nestjs/swagger';
 
@@ -16,7 +17,10 @@ import { ApiTags, ApiOperation, ApiQuery, ApiBearerAuth } from '@nestjs/swagger'
 @UseGuards(JwtAuthGuard)
 @Controller('metrics')
 export class MetricController {
-  constructor(private readonly metricService: MetricService) {}
+  constructor(
+    private readonly metricService: MetricService,
+    private readonly metricCollectorService: MetricCollectorService,
+  ) {}
 
   @Get()
   @ApiOperation({ summary: 'Get metrics with optional filters' })
@@ -62,5 +66,26 @@ export class MetricController {
   @ApiOperation({ summary: 'Generate mock data for demo' })
   async generateMockData(@Param('serverId') serverId: string) {
     return this.metricService.generateMockData(serverId);
+  }
+
+  @Post('data-mode')
+  @ApiOperation({ summary: 'Switch between real and simulated data mode' })
+  async setDataMode(@Body() body: { useRealData: boolean }) {
+    this.metricCollectorService.setUseRealData(body.useRealData);
+    return {
+      success: true,
+      message: `Data mode switched to ${body.useRealData ? 'Real' : 'Simulated'}`,
+      currentMode: body.useRealData ? 'real' : 'simulated',
+    };
+  }
+
+  @Get('data-mode')
+  @ApiOperation({ summary: 'Get current data collection mode' })
+  async getDataMode() {
+    const isReal = this.metricCollectorService.isUsingRealData();
+    return {
+      useRealData: isReal,
+      mode: isReal ? 'real' : 'simulated',
+    };
   }
 }

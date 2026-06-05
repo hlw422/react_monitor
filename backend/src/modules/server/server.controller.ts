@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards } from '@nestjs/common';
 import { ServerService } from './server.service';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { ApiTags, ApiOperation, ApiQuery, ApiBearerAuth } from '@nestjs/swagger';
@@ -33,5 +33,17 @@ export class ServerController {
   @ApiOperation({ summary: 'Get server by ID' })
   async findById(@Param('id') id: string) {
     return this.serverService.findById(id);
+  }
+
+  @Patch(':id')
+  @ApiOperation({ summary: 'Update a server' })
+  async update(@Param('id') id: string, @Body() data: Partial<{ hostname: string; ip: string; os: string; status: 'online' | 'offline'; tags: string[] }>) {
+    return this.serverService.update(id, data);
+  }
+
+  @Delete(':id')
+  @ApiOperation({ summary: 'Delete a server' })
+  async remove(@Param('id') id: string) {
+    return this.serverService.remove(id);
   }
 }

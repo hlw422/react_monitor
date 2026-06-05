@@ -46,4 +46,16 @@ export class ServerService {
     await this.serverRepository.update(id, { status, lastHeartbeat: new Date() });
     return this.findById(id);
   }
+
+  async update(id: string, data: Partial<{ hostname: string; ip: string; os: string; status: 'online' | 'offline'; tags: string[] }>) {
+    await this.serverRepository.update(id, data);
+    return this.findById(id);
+  }
+
+  async remove(id: string) {
+    const server = await this.findById(id);
+    if (!server) return null;
+    await this.serverRepository.delete(id);
+    return server;
+  }
 }

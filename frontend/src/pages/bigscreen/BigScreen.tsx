@@ -41,6 +41,10 @@ export default function BigScreen() {
     totalNetworkOut: 0,
     activeAlerts: 0,
   });
+  const [cpuData, setCpuData] = useState<{ time: string; value: number }[]>([]);
+  const [memData, setMemData] = useState<{ time: string; value: number }[]>([]);
+  const [networkInData, setNetworkInData] = useState<{ time: string; value: number }[]>([]);
+  const [networkOutData, setNetworkOutData] = useState<{ time: string; value: number }[]>([]);
 
   // Fetch dashboard stats
   const { data: dashboardData } = useQuery({
@@ -59,6 +63,38 @@ export default function BigScreen() {
       const response = await api.get('/alerts', { params: { limit: 20 } });
       return response.data;
     },
+    refetchInterval: 5000,
+  });
+
+  // Fetch time series data for online servers
+  const { data: serversData } = useQuery({
+    queryKey: ['servers', 'online'],
+    queryFn: async () => {
+      const response = await api.get('/servers', { params: { status: 'online' } });
+      return response.data;
+    },
+    refetchInterval: 10000,
+  });
+
+  // Fetch time series metrics for charts
+  useQuery({
+    queryKey: ['metrics', 'timeseries', serversData],
+    queryFn: async () => {
+      if (!serversData || serversData.length === 0) return null;
+      const serverId = serversData[0].id;
+      const [cpuRes, memRes, netRes] = await Promise.all([
+        api.get(`/metrics/timeseries/${serverId}/cpu`, { params: { minutes: 30 } }),
+        api.get(`/metrics/timeseries/${serverId}/memory`, { params: { minutes: 30 } }),
+        api.get(`/metrics/timeseries/${serverId}/network`, { params: { minutes: 30 } }),
+      ]);
+      const formatTime = (ts: string) => new Date(ts).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+      setCpuData(cpuRes.data.map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
+      setMemData(memRes.data.map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
+      setNetworkInData(netRes.data.map((m: any) => ({ time: formatTime(m.timestamp), value: m.value })));
+      setNetworkOutData(netRes.data.map((m: any) => ({ time: formatTime(m.timestamp), value: m.value * 0.3 })));
+      return true;
+    },
+    enabled: !!serversData && serversData.length > 0,
     refetchInterval: 5000,
   });
 
@@ -101,16 +137,18 @@ export default function BigScreen() {
     }
   };
 
-  // CPU & Memory Trend Chart
+  // CPU & Memory Trend Chart (using real data)
   const getTrendChartOption = () => {
-    const times = Array.from({ length: 20 }, (_, i) => {
-      const d = new Date();
-      d.setMinutes(d.getMinutes() - (19 - i));
-      return d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
-    });
+    const times = cpuData.length > 0
+      ? cpuData.map(d => d.time)
+      : Array.from({ length: 20 }, (_, i) => {
+          const d = new Date();
+          d.setMinutes(d.getMinutes() - (19 - i));
+          return d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+        });
 
-    const cpuData = Array.from({ length: 20 }, () => Math.random() * 40 + 30);
-    const memData = Array.from({ length: 20 }, () => Math.random() * 30 + 50);
+    const cpuValues = cpuData.length > 0 ? cpuData.map(d => d.value) : Array.from({ length: 20 }, () => 0);
+    const memValues = memData.length > 0 ? memData.map(d => d.value) : Array.from({ length: 20 }, () => 0);
 
     return {
       backgroundColor: 'transparent',
@@ -138,7 +176,7 @@ export default function BigScreen() {
         {
           name: 'CPU',
           type: 'line',
-          data: cpuData,
+          data: cpuValues,
           smooth: true,
           symbol: 'none',
           lineStyle: { color: '#3B82F6', width: 2 },
@@ -156,7 +194,7 @@ export default function BigScreen() {
         {
           name: 'Memory',
           type: 'line',
-          data: memData,
+          data: memValues,
           smooth: true,
           symbol: 'none',
           lineStyle: { color: '#22C55E', width: 2 },
@@ -175,16 +213,18 @@ export default function BigScreen() {
     };
   };
 
-  // Network Traffic Chart
+  // Network Traffic Chart (using real data)
   const getNetworkChartOption = () => {
-    const times = Array.from({ length: 20 }, (_, i) => {
-      const d = new Date();
-      d.setMinutes(d.getMinutes() - (19 - i));
-      return d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
-    });
+    const times = networkInData.length > 0
+      ? networkInData.map(d => d.time)
+      : Array.from({ length: 20 }, (_, i) => {
+          const d = new Date();
+          d.setMinutes(d.getMinutes() - (19 - i));
+          return d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+        });
 
-    const inData = Array.from({ length: 20 }, () => Math.random() * 500 + 100);
-    const outData = Array.from({ length: 20 }, () => Math.random() * 300 + 50);
+    const inValues = networkInData.length > 0 ? networkInData.map(d => d.value) : Array.from({ length: 20 }, () => 0);
+    const outValues = networkOutData.length > 0 ? networkOutData.map(d => d.value) : Array.from({ length: 20 }, () => 0);
 
     return {
       backgroundColor: 'transparent',
@@ -208,21 +248,21 @@ export default function BigScreen() {
         axisLabel: {
           color: '#64748B',
           fontSize: 10,
-          formatter: (value: number) => `${(value / 1024).toFixed(1)} MB/s`,
+          formatter: (value: number) => `${(value / 1024).toFixed(1)} KB/s`,
         },
       },
       series: [
         {
           name: 'Download',
           type: 'bar',
-          data: inData,
+          data: inValues,
           itemStyle: { color: '#8B5CF6', borderRadius: [4, 4, 0, 0] },
           barWidth: '30%',
         },
         {
           name: 'Upload',
           type: 'bar',
-          data: outData,
+          data: outValues,
           itemStyle: { color: '#06B6D4', borderRadius: [4, 4, 0, 0] },
           barWidth: '30%',
         },

@@ -1,0 +1,104 @@
+- generic [ref=e113]:
+  - generic [ref=e155]:
+    - complementary [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - img [ref=e160]
+          - generic [ref=e162]: Monitor
+        - button [ref=e163] [cursor=pointer]:
+          - img [ref=e164]
+      - navigation [ref=e166]:
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "仪表盘" [ref=e1061] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e170]
+              - generic [ref=e175]: 仪表盘
+          - listitem [ref=e177]:
+            - link "服务器" [ref=e1062] [cursor=pointer]:
+              - /url: /servers
+              - img [ref=e179]
+              - generic [ref=e182]: 服务器
+          - listitem [ref=e183]:
+            - link "指标" [ref=e1063] [cursor=pointer]:
+              - /url: /metrics
+              - img [ref=e185]
+              - generic [ref=e187]: 指标
+          - listitem [ref=e188]:
+            - link "告警" [ref=e1064] [cursor=pointer]:
+              - /url: /alerts
+              - img [ref=e190]
+              - generic [ref=e193]: 告警
+          - listitem [ref=e194]:
+            - link "日志" [active] [ref=e1065] [cursor=pointer]:
+              - /url: /logs
+              - img [ref=e196]
+              - generic [ref=e199]: 日志
+          - listitem [ref=e200]:
+            - link "数据大屏" [ref=e1066] [cursor=pointer]:
+              - /url: /bigscreen
+              - img [ref=e202]
+              - generic [ref=e204]: 数据大屏
+          - listitem [ref=e205]:
+            - link "设置" [ref=e1067] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e207]
+              - generic [ref=e210]: 设置
+      - button "退出登录" [ref=e1068] [cursor=pointer]:
+        - img [ref=e213]
+        - generic [ref=e216]: 退出登录
+    - generic [ref=e217]:
+      - banner [ref=e218]:
+        - generic [ref=e220]:
+          - heading "日志" [level=1] [ref=e1484]
+          - paragraph [ref=e222]: Thursday, June 4, 2026
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e225]
+            - textbox "搜索..." [ref=e1070]
+          - button [ref=e229] [cursor=pointer]:
+            - img [ref=e230]
+          - button [ref=e234] [cursor=pointer]:
+            - img [ref=e235]
+          - generic [ref=e241]:
+            - generic [ref=e243]: A
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: admin
+              - paragraph [ref=e246]: admin
+      - main [ref=e247]:
+        - generic [ref=e1485]:
+          - generic [ref=e1486]:
+            - generic [ref=e1487]:
+              - heading "Logs" [level=2] [ref=e1488]
+              - paragraph [ref=e1489]: Search and analyze system logs
+            - generic [ref=e1490]:
+              - button "Manual" [ref=e1491] [cursor=pointer]:
+                - img [ref=e1492]
+                - text: Manual
+              - button "Export CSV" [ref=e1498] [cursor=pointer]:
+                - img [ref=e1499]
+                - text: Export CSV
+              - button "Export JSON" [ref=e1502] [cursor=pointer]:
+                - img [ref=e1503]
+                - text: Export JSON
+          - generic [ref=e1506]:
+            - generic [ref=e1507]:
+              - img [ref=e1508]
+              - textbox "Search logs by message or source..." [ref=e1511]
+            - button "Last hour" [ref=e1513] [cursor=pointer]:
+              - img [ref=e1514]
+              - generic [ref=e1517]: Last hour
+              - img [ref=e1518]
+          - generic [ref=e1520]:
+            - button "All Levels" [ref=e1521] [cursor=pointer]
+            - button "Debug" [ref=e1522] [cursor=pointer]
+            - button "Info" [ref=e1523] [cursor=pointer]
+            - button "Warning" [ref=e1524] [cursor=pointer]
+            - button "Error" [ref=e1525] [cursor=pointer]
+            - button "Fatal" [ref=e1526] [cursor=pointer]
+          - paragraph [ref=e1530]: Loading logs...
+          - generic [ref=e1532]: Showing 0 of 0 logs
+  - generic [ref=e13]:
+    - img [ref=e15]
+    - button "Open Tanstack query devtools" [ref=e63] [cursor=pointer]:
+      - img [ref=e64]

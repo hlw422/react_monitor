@@ -1,0 +1,4 @@
+- generic [ref=e62]:
+  - img [ref=e64]
+  - button "Open Tanstack query devtools" [ref=e112] [cursor=pointer]:
+    - img [ref=e113]

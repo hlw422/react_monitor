@@ -1,0 +1,111 @@
+- generic [ref=e113]:
+  - generic [ref=e155]:
+    - complementary [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - img [ref=e160]
+          - generic [ref=e162]: Monitor
+        - button [ref=e163] [cursor=pointer]:
+          - img [ref=e164]
+      - navigation [ref=e166]:
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "仪表盘" [ref=e169] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e170]
+              - generic [ref=e175]: 仪表盘
+          - listitem [ref=e177]:
+            - link "服务器" [ref=e178] [cursor=pointer]:
+              - /url: /servers
+              - img [ref=e179]
+              - generic [ref=e182]: 服务器
+          - listitem [ref=e183]:
+            - link "指标" [ref=e184] [cursor=pointer]:
+              - /url: /metrics
+              - img [ref=e185]
+              - generic [ref=e187]: 指标
+          - listitem [ref=e188]:
+            - link "告警" [ref=e189] [cursor=pointer]:
+              - /url: /alerts
+              - img [ref=e190]
+              - generic [ref=e193]: 告警
+          - listitem [ref=e194]:
+            - link "日志" [ref=e195] [cursor=pointer]:
+              - /url: /logs
+              - img [ref=e196]
+              - generic [ref=e199]: 日志
+          - listitem [ref=e200]:
+            - link "数据大屏" [ref=e201] [cursor=pointer]:
+              - /url: /bigscreen
+              - img [ref=e202]
+              - generic [ref=e204]: 数据大屏
+          - listitem [ref=e205]:
+            - link "设置" [ref=e206] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e207]
+              - generic [ref=e210]: 设置
+      - button "退出登录" [ref=e212] [cursor=pointer]:
+        - img [ref=e213]
+        - generic [ref=e216]: 退出登录
+    - generic [ref=e217]:
+      - banner [ref=e218]:
+        - generic [ref=e220]:
+          - heading "设置" [level=1] [ref=e974]
+          - paragraph [ref=e222]: Thursday, June 4, 2026
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e225]
+            - textbox "搜索..." [ref=e228]
+          - button [ref=e229] [cursor=pointer]:
+            - img [ref=e230]
+          - button [ref=e234] [cursor=pointer]:
+            - img [ref=e235]
+          - generic [ref=e241]:
+            - generic [ref=e243]: A
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: admin
+              - paragraph [ref=e246]: admin
+      - main [ref=e247]:
+        - generic [ref=e975]:
+          - generic [ref=e976]:
+            - heading "Settings" [level=2] [ref=e977]
+            - paragraph [ref=e978]: Configure system settings and preferences
+          - generic [ref=e979]:
+            - generic [ref=e980]:
+              - button "通用" [ref=e981] [cursor=pointer]:
+                - img [ref=e982]
+                - text: 通用
+              - button "用户" [ref=e985] [cursor=pointer]:
+                - img [ref=e986]
+                - text: 用户
+              - button "通知" [ref=e989] [cursor=pointer]:
+                - img [ref=e990]
+                - text: 通知
+              - button "安全" [ref=e993] [cursor=pointer]:
+                - img [ref=e994]
+                - text: 安全
+              - button "语言" [active] [ref=e996] [cursor=pointer]:
+                - img [ref=e997]
+                - text: 语言
+            - generic [ref=e1001]:
+              - heading "语言设置" [level=3] [ref=e1026]
+              - generic [ref=e1003]:
+                - generic [ref=e1004]:
+                  - generic [ref=e1005]: 选择语言
+                  - generic [ref=e1027]:
+                    - button "🇨🇳 简体中文 Chinese (Simplified)" [ref=e1028] [cursor=pointer]:
+                      - generic [ref=e1030]: 🇨🇳
+                      - generic [ref=e1031]:
+                        - paragraph [ref=e1032]: 简体中文
+                        - paragraph [ref=e1033]: Chinese (Simplified)
+                      - img [ref=e1034]
+                    - button "🇺🇸 English English (US)" [ref=e1036] [cursor=pointer]:
+                      - generic [ref=e1038]: 🇺🇸
+                      - generic [ref=e1039]:
+                        - paragraph [ref=e1040]: English
+                        - paragraph [ref=e1041]: English (US)
+                - paragraph [ref=e1042]: 更改语言将更新整个应用程序的界面文本。某些更改可能需要刷新页面才能完全生效。
+  - generic [ref=e13]:
+    - img [ref=e15]
+    - button "Open Tanstack query devtools" [ref=e63] [cursor=pointer]:
+      - img [ref=e64]

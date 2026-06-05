@@ -1,0 +1,212 @@
+- generic [ref=e113]:
+  - generic [ref=e155]:
+    - complementary [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - img [ref=e160]
+          - generic [ref=e162]: Monitor
+        - button [ref=e163] [cursor=pointer]:
+          - img [ref=e164]
+      - navigation [ref=e166]:
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "仪表盘" [ref=e169] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e170]
+              - generic [ref=e175]: 仪表盘
+          - listitem [ref=e177]:
+            - link "服务器" [ref=e178] [cursor=pointer]:
+              - /url: /servers
+              - img [ref=e179]
+              - generic [ref=e182]: 服务器
+          - listitem [ref=e183]:
+            - link "指标" [ref=e184] [cursor=pointer]:
+              - /url: /metrics
+              - img [ref=e185]
+              - generic [ref=e187]: 指标
+          - listitem [ref=e188]:
+            - link "告警" [ref=e189] [cursor=pointer]:
+              - /url: /alerts
+              - img [ref=e190]
+              - generic [ref=e193]: 告警
+          - listitem [ref=e194]:
+            - link "日志" [ref=e195] [cursor=pointer]:
+              - /url: /logs
+              - img [ref=e196]
+              - generic [ref=e199]: 日志
+          - listitem [ref=e200]:
+            - link "数据大屏" [ref=e201] [cursor=pointer]:
+              - /url: /bigscreen
+              - img [ref=e202]
+              - generic [ref=e204]: 数据大屏
+          - listitem [ref=e205]:
+            - link "设置" [ref=e206] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e207]
+              - generic [ref=e210]: 设置
+      - button "退出登录" [ref=e212] [cursor=pointer]:
+        - img [ref=e213]
+        - generic [ref=e216]: 退出登录
+    - generic [ref=e217]:
+      - banner [ref=e218]:
+        - generic [ref=e220]:
+          - heading "仪表盘" [level=1] [ref=e221]
+          - paragraph [ref=e222]: Thursday, June 4, 2026
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e225]
+            - textbox "搜索..." [ref=e228]
+          - button [ref=e229] [cursor=pointer]:
+            - img [ref=e230]
+          - button [ref=e234] [cursor=pointer]:
+            - img [ref=e235]
+          - generic [ref=e241]:
+            - generic [ref=e243]: A
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: admin
+              - paragraph [ref=e246]: admin
+      - main [ref=e247]:
+        - generic [ref=e249]:
+          - generic [ref=e250]:
+            - generic [ref=e251]:
+              - heading "仪表盘" [level=2] [ref=e252]
+              - paragraph [ref=e253]: 系统概览与实时监控
+            - generic [ref=e254]:
+              - generic [ref=e255]:
+                - button "1s" [ref=e256] [cursor=pointer]
+                - button "3s" [ref=e257] [cursor=pointer]
+                - button "5s" [ref=e258] [cursor=pointer]
+                - button "10s" [ref=e259] [cursor=pointer]
+                - button "30s" [ref=e260] [cursor=pointer]
+              - button [ref=e261] [cursor=pointer]:
+                - img [ref=e262]
+          - generic [ref=e267]:
+            - generic [ref=e268]:
+              - generic [ref=e269]:
+                - img [ref=e271]
+                - generic [ref=e274]:
+                  - img [ref=e275]
+                  - generic [ref=e278]: 2%
+              - generic [ref=e279]:
+                - paragraph [ref=e280]: "24"
+                - paragraph [ref=e281]: 服务器总数
+            - generic [ref=e282]:
+              - generic [ref=e283]:
+                - img [ref=e285]
+                - generic [ref=e288]:
+                  - img [ref=e289]
+                  - generic [ref=e292]: 1%
+              - generic [ref=e293]:
+                - paragraph [ref=e294]: "22"
+                - paragraph [ref=e295]: of 24
+                - paragraph [ref=e296]: 在线服务器
+            - generic [ref=e297]:
+              - generic [ref=e298]:
+                - img [ref=e300]
+                - generic [ref=e303]:
+                  - img [ref=e304]
+                  - generic [ref=e307]: "-3%"
+              - generic [ref=e308]:
+                - paragraph [ref=e309]: 43.1%
+                - paragraph [ref=e310]: 平均 CPU
+            - generic [ref=e314]:
+              - generic [ref=e315]:
+                - img [ref=e317]
+                - generic [ref=e319]:
+                  - img [ref=e320]
+                  - generic [ref=e323]: 2%
+              - generic [ref=e324]:
+                - paragraph [ref=e325]: 64.6%
+                - paragraph [ref=e326]: 平均内存
+            - generic [ref=e330]:
+              - generic [ref=e331]:
+                - img [ref=e333]
+                - generic [ref=e335]:
+                  - img [ref=e336]
+                  - generic [ref=e339]: 1%
+              - generic [ref=e340]:
+                - paragraph [ref=e341]: 58.7%
+                - paragraph [ref=e342]: 平均磁盘
+            - generic [ref=e346]:
+              - generic [ref=e347]:
+                - img [ref=e349]
+                - generic [ref=e352]:
+                  - img [ref=e353]
+                  - generic [ref=e356]: 2%
+              - generic [ref=e357]:
+                - paragraph [ref=e358]: "5"
+                - paragraph [ref=e359]: 活跃告警
+          - generic [ref=e360]:
+            - generic [ref=e362]:
+              - generic [ref=e363]:
+                - img [ref=e365]
+                - generic [ref=e368]:
+                  - paragraph [ref=e369]: 网络流量
+                  - paragraph [ref=e370]: 1.2 GB
+              - generic [ref=e371]: +12.5%
+            - generic [ref=e375]:
+              - generic [ref=e376]:
+                - img [ref=e378]
+                - generic [ref=e381]:
+                  - paragraph [ref=e382]: 网络流量
+                  - paragraph [ref=e383]: 848.8 MB
+              - generic [ref=e384]: "-8.3%"
+          - generic [ref=e387]:
+            - heading "平均 CPU" [level=3] [ref=e389]
+            - heading "平均内存" [level=3] [ref=e395]
+          - generic [ref=e400]:
+            - heading "服务器" [level=3] [ref=e402]
+            - generic [ref=e407]:
+              - generic [ref=e408]:
+                - heading "告警" [level=3] [ref=e409]
+                - button "查看全部" [ref=e410] [cursor=pointer]
+              - generic [ref=e411]:
+                - generic [ref=e412]:
+                  - img [ref=e414]
+                  - generic [ref=e416]:
+                    - paragraph [ref=e417]: CPU usage exceeded 95% on web-server-01
+                    - generic [ref=e418]:
+                      - generic [ref=e419]: 5m ago
+                      - generic [ref=e420]: •
+                      - generic [ref=e421]: srv-001
+                  - generic [ref=e422]: Pending
+                - generic [ref=e423]:
+                  - img [ref=e425]
+                  - generic [ref=e427]:
+                    - paragraph [ref=e428]: Memory usage above 85% on db-server-01
+                    - generic [ref=e429]:
+                      - generic [ref=e430]: 15m ago
+                      - generic [ref=e431]: •
+                      - generic [ref=e432]: srv-002
+                  - generic [ref=e433]: Acknowledged
+                - generic [ref=e434]:
+                  - img [ref=e436]
+                  - generic [ref=e438]:
+                    - paragraph [ref=e439]: Disk space below 10% on storage-01
+                    - generic [ref=e440]:
+                      - generic [ref=e441]: 30m ago
+                      - generic [ref=e442]: •
+                      - generic [ref=e443]: srv-003
+                  - generic [ref=e444]: Pending
+                - generic [ref=e445]:
+                  - img [ref=e447]
+                  - generic [ref=e449]:
+                    - paragraph [ref=e450]: Server backup completed successfully
+                    - generic [ref=e451]:
+                      - generic [ref=e452]: 45m ago
+                      - generic [ref=e453]: •
+                      - generic [ref=e454]: srv-004
+                  - generic [ref=e455]: Resolved
+                - generic [ref=e456]:
+                  - img [ref=e458]
+                  - generic [ref=e460]:
+                    - paragraph [ref=e461]: High network latency detected on api-server-02
+                    - generic [ref=e462]:
+                      - generic [ref=e463]: 1h ago
+                      - generic [ref=e464]: •
+                      - generic [ref=e465]: srv-005
+                  - generic [ref=e466]: Pending
+  - generic [ref=e13]:
+    - img [ref=e15]
+    - button "Open Tanstack query devtools" [ref=e63] [cursor=pointer]:
+      - img [ref=e64]

@@ -1,0 +1,45 @@
+- generic [ref=e113]:
+  - generic [ref=e1671]:
+    - generic [ref=e1672]:
+      - img [ref=e1674]
+      - heading "React 监控平台" [level=1] [ref=e1676]
+      - paragraph [ref=e1677]: 登录您的监控仪表盘
+    - generic [ref=e1678]:
+      - generic [ref=e1679]:
+        - generic [ref=e1680]:
+          - generic [ref=e1681]: 用户名
+          - generic [ref=e1682]:
+            - generic:
+              - img
+            - textbox "用户名" [ref=e1683]:
+              - /placeholder: 请输入用户名
+        - generic [ref=e1684]:
+          - generic [ref=e1685]: 密码
+          - generic [ref=e1686]:
+            - generic:
+              - img
+            - textbox "密码" [ref=e1687]:
+              - /placeholder: 请输入密码
+            - button [ref=e1688] [cursor=pointer]:
+              - img [ref=e1689]
+        - generic [ref=e1692]:
+          - generic [ref=e1693] [cursor=pointer]:
+            - checkbox "记住我" [ref=e1694]
+            - generic [ref=e1695]: 记住我
+          - link "忘记密码？" [ref=e1696] [cursor=pointer]:
+            - /url: "#"
+        - button "登录" [ref=e1697] [cursor=pointer]
+      - generic [ref=e1698]:
+        - paragraph [ref=e1699]: 演示账号
+        - generic [ref=e1700]:
+          - generic [ref=e1701]:
+            - generic [ref=e1702]: "用户名:"
+            - text: admin
+          - generic [ref=e1703]:
+            - generic [ref=e1704]: "密码:"
+            - text: admin123
+    - paragraph [ref=e1705]: © 2024 Monitor. All rights reserved.
+  - generic [ref=e13]:
+    - img [ref=e15]
+    - button "Open Tanstack query devtools" [ref=e63] [cursor=pointer]:
+      - img [ref=e64]

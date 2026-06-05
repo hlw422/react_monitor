@@ -1,0 +1,111 @@
+- generic [ref=e113]:
+  - generic [ref=e155]:
+    - complementary [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - img [ref=e160]
+          - generic [ref=e162]: Monitor
+        - button [ref=e163] [cursor=pointer]:
+          - img [ref=e164]
+      - navigation [ref=e166]:
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "Dashboard" [ref=e1043] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e170]
+              - generic [ref=e175]: Dashboard
+          - listitem [ref=e177]:
+            - link "Servers" [ref=e1044] [cursor=pointer]:
+              - /url: /servers
+              - img [ref=e179]
+              - generic [ref=e182]: Servers
+          - listitem [ref=e183]:
+            - link "Metrics" [ref=e1045] [cursor=pointer]:
+              - /url: /metrics
+              - img [ref=e185]
+              - generic [ref=e187]: Metrics
+          - listitem [ref=e188]:
+            - link "Alerts" [ref=e1046] [cursor=pointer]:
+              - /url: /alerts
+              - img [ref=e190]
+              - generic [ref=e193]: Alerts
+          - listitem [ref=e194]:
+            - link "Logs" [ref=e1047] [cursor=pointer]:
+              - /url: /logs
+              - img [ref=e196]
+              - generic [ref=e199]: Logs
+          - listitem [ref=e200]:
+            - link "Big Screen" [ref=e1048] [cursor=pointer]:
+              - /url: /bigscreen
+              - img [ref=e202]
+              - generic [ref=e204]: Big Screen
+          - listitem [ref=e205]:
+            - link "Settings" [ref=e1049] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e207]
+              - generic [ref=e210]: Settings
+      - button "Logout" [ref=e1050] [cursor=pointer]:
+        - img [ref=e213]
+        - generic [ref=e216]: Logout
+    - generic [ref=e217]:
+      - banner [ref=e218]:
+        - generic [ref=e220]:
+          - heading "Settings" [level=1] [ref=e1051]
+          - paragraph [ref=e222]: Thursday, June 4, 2026
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e225]
+            - textbox "Search..." [ref=e1052]
+          - button [ref=e229] [cursor=pointer]:
+            - img [ref=e230]
+          - button [ref=e234] [cursor=pointer]:
+            - img [ref=e235]
+          - generic [ref=e241]:
+            - generic [ref=e243]: A
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: admin
+              - paragraph [ref=e246]: admin
+      - main [ref=e247]:
+        - generic [ref=e975]:
+          - generic [ref=e976]:
+            - heading "Settings" [level=2] [ref=e977]
+            - paragraph [ref=e978]: Configure system settings and preferences
+          - generic [ref=e979]:
+            - generic [ref=e980]:
+              - button "General" [ref=e1053] [cursor=pointer]:
+                - img [ref=e982]
+                - text: General
+              - button "Users" [ref=e1054] [cursor=pointer]:
+                - img [ref=e986]
+                - text: Users
+              - button "Notifications" [ref=e1055] [cursor=pointer]:
+                - img [ref=e990]
+                - text: Notifications
+              - button "Security" [ref=e1056] [cursor=pointer]:
+                - img [ref=e994]
+                - text: Security
+              - button "Language" [ref=e1057] [cursor=pointer]:
+                - img [ref=e997]
+                - text: Language
+            - generic [ref=e1001]:
+              - heading "Language Settings" [level=3] [ref=e1058]
+              - generic [ref=e1003]:
+                - generic [ref=e1004]:
+                  - generic [ref=e1005]: Select Language
+                  - generic [ref=e1027]:
+                    - button "🇨🇳 简体中文 Chinese (Simplified)" [ref=e1028] [cursor=pointer]:
+                      - generic [ref=e1030]: 🇨🇳
+                      - generic [ref=e1031]:
+                        - paragraph [ref=e1032]: 简体中文
+                        - paragraph [ref=e1033]: Chinese (Simplified)
+                    - button "🇺🇸 English English (US)" [active] [ref=e1036] [cursor=pointer]:
+                      - generic [ref=e1038]: 🇺🇸
+                      - generic [ref=e1039]:
+                        - paragraph [ref=e1040]: English
+                        - paragraph [ref=e1041]: English (US)
+                      - img [ref=e1059]
+                - paragraph [ref=e1042]: Changing the language will update the interface text throughout the application. Some changes may require a page refresh to take full effect.
+  - generic [ref=e13]:
+    - img [ref=e15]
+    - button "Open Tanstack query devtools" [ref=e63] [cursor=pointer]:
+      - img [ref=e64]

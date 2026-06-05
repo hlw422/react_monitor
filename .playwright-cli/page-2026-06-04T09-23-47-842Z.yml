@@ -1,0 +1,5 @@
+- generic [ref=e2]:
+  - img [ref=e6]
+  - generic [ref=e8]:
+    - heading "Monitor" [level=2] [ref=e9]
+    - paragraph [ref=e10]: Loading...

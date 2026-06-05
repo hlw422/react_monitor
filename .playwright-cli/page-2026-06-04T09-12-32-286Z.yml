@@ -1,0 +1,209 @@
+- generic [ref=e113]:
+  - generic [ref=e155]:
+    - complementary [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - img [ref=e160]
+          - generic [ref=e162]: Monitor
+        - button [ref=e163] [cursor=pointer]:
+          - img [ref=e164]
+      - navigation [ref=e166]:
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "仪表盘" [ref=e1061] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e170]
+              - generic [ref=e175]: 仪表盘
+          - listitem [ref=e177]:
+            - link "服务器" [active] [ref=e1062] [cursor=pointer]:
+              - /url: /servers
+              - img [ref=e179]
+              - generic [ref=e182]: 服务器
+          - listitem [ref=e183]:
+            - link "指标" [ref=e1063] [cursor=pointer]:
+              - /url: /metrics
+              - img [ref=e185]
+              - generic [ref=e187]: 指标
+          - listitem [ref=e188]:
+            - link "告警" [ref=e1064] [cursor=pointer]:
+              - /url: /alerts
+              - img [ref=e190]
+              - generic [ref=e193]: 告警
+          - listitem [ref=e194]:
+            - link "日志" [ref=e1065] [cursor=pointer]:
+              - /url: /logs
+              - img [ref=e196]
+              - generic [ref=e199]: 日志
+          - listitem [ref=e200]:
+            - link "数据大屏" [ref=e1066] [cursor=pointer]:
+              - /url: /bigscreen
+              - img [ref=e202]
+              - generic [ref=e204]: 数据大屏
+          - listitem [ref=e205]:
+            - link "设置" [ref=e1067] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e207]
+              - generic [ref=e210]: 设置
+      - button "退出登录" [ref=e1068] [cursor=pointer]:
+        - img [ref=e213]
+        - generic [ref=e216]: 退出登录
+    - generic [ref=e217]:
+      - banner [ref=e218]:
+        - generic [ref=e220]:
+          - heading "服务器" [level=1] [ref=e1201]
+          - paragraph [ref=e222]: Thursday, June 4, 2026
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e225]
+            - textbox "搜索..." [ref=e1070]
+          - button [ref=e229] [cursor=pointer]:
+            - img [ref=e230]
+          - button [ref=e234] [cursor=pointer]:
+            - img [ref=e235]
+          - generic [ref=e241]:
+            - generic [ref=e243]: A
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: admin
+              - paragraph [ref=e246]: admin
+      - main [ref=e247]:
+        - generic [ref=e1202]:
+          - generic [ref=e1203]:
+            - generic [ref=e1204]:
+              - heading "Servers" [level=2] [ref=e1205]
+              - paragraph [ref=e1206]: 5 servers • 4 online
+            - button "Add Server" [ref=e1207] [cursor=pointer]:
+              - img [ref=e1208]
+              - text: Add Server
+          - generic [ref=e1209]:
+            - generic [ref=e1210]:
+              - img [ref=e1211]
+              - textbox "Search servers by name, IP, or tags..." [ref=e1214]
+            - generic [ref=e1215]:
+              - button "Filter" [ref=e1216] [cursor=pointer]:
+                - img [ref=e1217]
+                - text: Filter
+              - generic [ref=e1219]:
+                - button [ref=e1220] [cursor=pointer]:
+                  - img [ref=e1221]
+                - button [ref=e1223] [cursor=pointer]:
+                  - img [ref=e1224]
+          - generic [ref=e1225]:
+            - generic [ref=e1226] [cursor=pointer]:
+              - generic [ref=e1227]:
+                - generic [ref=e1230]: web-server-01
+                - generic [ref=e1231]: 192.168.1.101
+              - generic [ref=e1232]:
+                - generic [ref=e1233]:
+                  - generic [ref=e1234]:
+                    - img [ref=e1235]
+                    - generic [ref=e1238]: CPU
+                  - generic [ref=e1239]: 45.2%
+                - generic [ref=e1242]:
+                  - generic [ref=e1243]:
+                    - img [ref=e1244]
+                    - generic [ref=e1246]: Memory
+                  - generic [ref=e1247]: 62.8%
+                - generic [ref=e1250]:
+                  - generic [ref=e1251]:
+                    - img [ref=e1252]
+                    - generic [ref=e1254]: Disk
+                  - generic [ref=e1255]: 58.3%
+              - generic [ref=e1258]:
+                - generic [ref=e1259]: web
+                - generic [ref=e1260]: production
+            - generic [ref=e1261] [cursor=pointer]:
+              - generic [ref=e1262]:
+                - generic [ref=e1265]: db-server-01
+                - generic [ref=e1266]: 192.168.1.102
+              - generic [ref=e1267]:
+                - generic [ref=e1268]:
+                  - generic [ref=e1269]:
+                    - img [ref=e1270]
+                    - generic [ref=e1273]: CPU
+                  - generic [ref=e1274]: 78.5%
+                - generic [ref=e1277]:
+                  - generic [ref=e1278]:
+                    - img [ref=e1279]
+                    - generic [ref=e1281]: Memory
+                  - generic [ref=e1282]: 85.2%
+                - generic [ref=e1285]:
+                  - generic [ref=e1286]:
+                    - img [ref=e1287]
+                    - generic [ref=e1289]: Disk
+                  - generic [ref=e1290]: 72.1%
+              - generic [ref=e1293]:
+                - generic [ref=e1294]: database
+                - generic [ref=e1295]: production
+            - generic [ref=e1296] [cursor=pointer]:
+              - generic [ref=e1297]:
+                - generic [ref=e1300]: api-server-01
+                - generic [ref=e1301]: 192.168.1.103
+              - generic [ref=e1302]:
+                - generic [ref=e1303]:
+                  - generic [ref=e1304]:
+                    - img [ref=e1305]
+                    - generic [ref=e1308]: CPU
+                  - generic [ref=e1309]: 32.1%
+                - generic [ref=e1312]:
+                  - generic [ref=e1313]:
+                    - img [ref=e1314]
+                    - generic [ref=e1316]: Memory
+                  - generic [ref=e1317]: 45.6%
+                - generic [ref=e1320]:
+                  - generic [ref=e1321]:
+                    - img [ref=e1322]
+                    - generic [ref=e1324]: Disk
+                  - generic [ref=e1325]: 38.9%
+              - generic [ref=e1328]:
+                - generic [ref=e1329]: api
+                - generic [ref=e1330]: production
+            - generic [ref=e1331] [cursor=pointer]:
+              - generic [ref=e1332]:
+                - generic [ref=e1335]: storage-01
+                - generic [ref=e1336]: 192.168.1.104
+              - generic [ref=e1337]:
+                - generic [ref=e1338]:
+                  - generic [ref=e1339]:
+                    - img [ref=e1340]
+                    - generic [ref=e1343]: CPU
+                  - generic [ref=e1344]: 0.0%
+                - generic [ref=e1346]:
+                  - generic [ref=e1347]:
+                    - img [ref=e1348]
+                    - generic [ref=e1350]: Memory
+                  - generic [ref=e1351]: 0.0%
+                - generic [ref=e1353]:
+                  - generic [ref=e1354]:
+                    - img [ref=e1355]
+                    - generic [ref=e1357]: Disk
+                  - generic [ref=e1358]: 95.2%
+              - generic [ref=e1361]:
+                - generic [ref=e1362]: storage
+                - generic [ref=e1363]: backup
+            - generic [ref=e1364] [cursor=pointer]:
+              - generic [ref=e1365]:
+                - generic [ref=e1368]: monitor-server
+                - generic [ref=e1369]: 192.168.1.105
+              - generic [ref=e1370]:
+                - generic [ref=e1371]:
+                  - generic [ref=e1372]:
+                    - img [ref=e1373]
+                    - generic [ref=e1376]: CPU
+                  - generic [ref=e1377]: 15.8%
+                - generic [ref=e1380]:
+                  - generic [ref=e1381]:
+                    - img [ref=e1382]
+                    - generic [ref=e1384]: Memory
+                  - generic [ref=e1385]: 28.4%
+                - generic [ref=e1388]:
+                  - generic [ref=e1389]:
+                    - img [ref=e1390]
+                    - generic [ref=e1392]: Disk
+                  - generic [ref=e1393]: 22.6%
+              - generic [ref=e1396]:
+                - generic [ref=e1397]: monitoring
+                - generic [ref=e1398]: internal
+  - generic [ref=e13]:
+    - img [ref=e15]
+    - button "Open Tanstack query devtools" [ref=e63] [cursor=pointer]:
+      - img [ref=e64]

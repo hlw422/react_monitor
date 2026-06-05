@@ -1,0 +1,153 @@
+- generic [ref=e113]:
+  - generic [ref=e155]:
+    - complementary [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - img [ref=e160]
+          - generic [ref=e162]: Monitor
+        - button [ref=e163] [cursor=pointer]:
+          - img [ref=e164]
+      - navigation [ref=e166]:
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "仪表盘" [ref=e1061] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e170]
+              - generic [ref=e175]: 仪表盘
+          - listitem [ref=e177]:
+            - link "服务器" [ref=e1062] [cursor=pointer]:
+              - /url: /servers
+              - img [ref=e179]
+              - generic [ref=e182]: 服务器
+          - listitem [ref=e183]:
+            - link "指标" [ref=e1063] [cursor=pointer]:
+              - /url: /metrics
+              - img [ref=e185]
+              - generic [ref=e187]: 指标
+          - listitem [ref=e188]:
+            - link "告警" [ref=e1064] [cursor=pointer]:
+              - /url: /alerts
+              - img [ref=e190]
+              - generic [ref=e193]: 告警
+          - listitem [ref=e194]:
+            - link "日志" [ref=e1065] [cursor=pointer]:
+              - /url: /logs
+              - img [ref=e196]
+              - generic [ref=e199]: 日志
+          - listitem [ref=e200]:
+            - link "数据大屏" [active] [ref=e1066] [cursor=pointer]:
+              - /url: /bigscreen
+              - img [ref=e202]
+              - generic [ref=e204]: 数据大屏
+          - listitem [ref=e205]:
+            - link "设置" [ref=e1067] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e207]
+              - generic [ref=e210]: 设置
+      - button "退出登录" [ref=e1068] [cursor=pointer]:
+        - img [ref=e213]
+        - generic [ref=e216]: 退出登录
+    - generic [ref=e217]:
+      - banner [ref=e218]:
+        - generic [ref=e220]:
+          - heading "数据大屏" [level=1] [ref=e1534]
+          - paragraph [ref=e222]: Thursday, June 4, 2026
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e225]
+            - textbox "搜索..." [ref=e1070]
+          - button [ref=e229] [cursor=pointer]:
+            - img [ref=e230]
+          - button [ref=e234] [cursor=pointer]:
+            - img [ref=e235]
+          - generic [ref=e241]:
+            - generic [ref=e243]: A
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: admin
+              - paragraph [ref=e246]: admin
+      - main [ref=e247]:
+        - generic [ref=e1535]:
+          - generic [ref=e1536]:
+            - generic [ref=e1537]:
+              - heading "运维监控中心" [level=1] [ref=e1538]
+              - generic [ref=e1539]:
+                - img [ref=e1540]
+                - generic [ref=e1543]: 2026/6/4 17:13:24
+            - generic [ref=e1544]:
+              - generic [ref=e1545]:
+                - img [ref=e1546]
+                - generic [ref=e1548]: Live
+              - button [ref=e1549] [cursor=pointer]:
+                - img [ref=e1550]
+          - generic [ref=e1555]:
+            - generic [ref=e1556]:
+              - generic [ref=e1557]:
+                - img [ref=e1559]
+                - generic [ref=e1562]: Servers
+              - paragraph [ref=e1563]: "0"
+              - text: "0"
+            - generic [ref=e1564]:
+              - generic [ref=e1565]:
+                - img [ref=e1567]
+                - generic [ref=e1570]: CPU Avg
+              - paragraph [ref=e1571]: 0.0%
+            - generic [ref=e1572]:
+              - generic [ref=e1573]:
+                - img [ref=e1575]
+                - generic [ref=e1577]: Memory Avg
+              - paragraph [ref=e1578]: 0.0%
+            - generic [ref=e1579]:
+              - generic [ref=e1580]:
+                - img [ref=e1582]
+                - generic [ref=e1584]: Active Alerts
+              - paragraph [ref=e1585]: "0"
+          - generic [ref=e1586]:
+            - generic [ref=e1587]:
+              - heading "Server Distribution" [level=3] [ref=e1589]:
+                - img [ref=e1590]
+                - text: Server Distribution
+              - heading "Alert Distribution" [level=3] [ref=e1597]:
+                - img [ref=e1598]
+                - text: Alert Distribution
+            - generic [ref=e1603]:
+              - heading "CPU & Memory Trend" [level=3] [ref=e1605]:
+                - img [ref=e1606]
+                - text: CPU & Memory Trend
+              - heading "Network Traffic" [level=3] [ref=e1613]:
+                - img [ref=e1614]
+                - text: Network Traffic
+            - generic [ref=e1621]:
+              - generic [ref=e1622]:
+                - heading "Real-time Alerts" [level=3] [ref=e1623]:
+                  - img [ref=e1624]
+                  - text: Real-time Alerts
+                - generic [ref=e1627]: No recent alerts
+              - generic [ref=e1628]:
+                - heading "Key Metrics" [level=3] [ref=e1629]:
+                  - img [ref=e1630]
+                  - text: Key Metrics
+                - generic [ref=e1632]:
+                  - generic [ref=e1633]:
+                    - generic [ref=e1634]:
+                      - img [ref=e1635]
+                      - generic [ref=e1639]: 0%
+                    - paragraph [ref=e1640]: CPU
+                  - generic [ref=e1641]:
+                    - generic [ref=e1642]:
+                      - img [ref=e1643]
+                      - generic [ref=e1647]: 0%
+                    - paragraph [ref=e1648]: Memory
+                  - generic [ref=e1649]:
+                    - generic [ref=e1650]:
+                      - img [ref=e1651]
+                      - generic [ref=e1655]: 0%
+                    - paragraph [ref=e1656]: Disk
+                  - generic [ref=e1657]:
+                    - generic [ref=e1658]:
+                      - img [ref=e1659]
+                      - generic [ref=e1663]: 0%
+                    - paragraph [ref=e1664]: Network
+  - generic [ref=e13]:
+    - img [ref=e15]
+    - button "Open Tanstack query devtools" [ref=e63] [cursor=pointer]:
+      - img [ref=e64]

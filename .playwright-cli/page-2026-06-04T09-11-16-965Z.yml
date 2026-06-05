@@ -1,0 +1,164 @@
+- generic [ref=e113]:
+  - generic [ref=e155]:
+    - complementary [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - img [ref=e160]
+          - generic [ref=e162]: Monitor
+        - button [ref=e163] [cursor=pointer]:
+          - img [ref=e164]
+      - navigation [ref=e166]:
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "仪表盘" [ref=e1061] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e170]
+              - generic [ref=e175]: 仪表盘
+          - listitem [ref=e177]:
+            - link "服务器" [ref=e1062] [cursor=pointer]:
+              - /url: /servers
+              - img [ref=e179]
+              - generic [ref=e182]: 服务器
+          - listitem [ref=e183]:
+            - link "指标" [ref=e1063] [cursor=pointer]:
+              - /url: /metrics
+              - img [ref=e185]
+              - generic [ref=e187]: 指标
+          - listitem [ref=e188]:
+            - link "告警" [ref=e1064] [cursor=pointer]:
+              - /url: /alerts
+              - img [ref=e190]
+              - generic [ref=e193]: 告警
+          - listitem [ref=e194]:
+            - link "日志" [ref=e1065] [cursor=pointer]:
+              - /url: /logs
+              - img [ref=e196]
+              - generic [ref=e199]: 日志
+          - listitem [ref=e200]:
+            - link "数据大屏" [ref=e1066] [cursor=pointer]:
+              - /url: /bigscreen
+              - img [ref=e202]
+              - generic [ref=e204]: 数据大屏
+          - listitem [ref=e205]:
+            - link "设置" [ref=e1067] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e207]
+              - generic [ref=e210]: 设置
+      - button "退出登录" [ref=e1068] [cursor=pointer]:
+        - img [ref=e213]
+        - generic [ref=e216]: 退出登录
+    - generic [ref=e217]:
+      - banner [ref=e218]:
+        - generic [ref=e220]:
+          - heading "设置" [level=1] [ref=e1069]
+          - paragraph [ref=e222]: Thursday, June 4, 2026
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e225]
+            - textbox "搜索..." [ref=e1070]
+          - button [ref=e229] [cursor=pointer]:
+            - img [ref=e230]
+          - button [ref=e234] [cursor=pointer]:
+            - img [ref=e235]
+          - generic [ref=e241]:
+            - generic [ref=e243]: A
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: admin
+              - paragraph [ref=e246]: admin
+      - main [ref=e247]:
+        - generic [ref=e975]:
+          - generic [ref=e976]:
+            - heading "Settings" [level=2] [ref=e977]
+            - paragraph [ref=e978]: Configure system settings and preferences
+          - generic [ref=e979]:
+            - generic [ref=e980]:
+              - button "通用" [ref=e1071] [cursor=pointer]:
+                - img [ref=e982]
+                - text: 通用
+              - button "用户" [active] [ref=e1072] [cursor=pointer]:
+                - img [ref=e986]
+                - text: 用户
+              - button "通知" [ref=e1073] [cursor=pointer]:
+                - img [ref=e990]
+                - text: 通知
+              - button "安全" [ref=e1074] [cursor=pointer]:
+                - img [ref=e994]
+                - text: 安全
+              - button "语言" [ref=e1075] [cursor=pointer]:
+                - img [ref=e997]
+                - text: 语言
+            - generic [ref=e1001]:
+              - generic [ref=e1079]:
+                - heading "User Management" [level=3] [ref=e1080]
+                - button "Add User" [ref=e1081] [cursor=pointer]:
+                  - img [ref=e1082]
+                  - text: Add User
+              - table [ref=e1083]:
+                - rowgroup [ref=e1084]:
+                  - row "User Email Role Status Actions" [ref=e1085]:
+                    - columnheader "User" [ref=e1086]
+                    - columnheader "Email" [ref=e1087]
+                    - columnheader "Role" [ref=e1088]
+                    - columnheader "Status" [ref=e1089]
+                    - columnheader "Actions" [ref=e1090]
+                - rowgroup [ref=e1091]:
+                  - row "A admin admin@example.com admin active" [ref=e1092]:
+                    - cell "A admin" [ref=e1093]:
+                      - generic [ref=e1094]:
+                        - generic [ref=e1096]: A
+                        - generic [ref=e1097]: admin
+                    - cell "admin@example.com" [ref=e1098]
+                    - cell "admin" [ref=e1099]
+                    - cell "active" [ref=e1100]
+                    - cell [ref=e1101]:
+                      - generic [ref=e1102]:
+                        - button [ref=e1103] [cursor=pointer]:
+                          - img [ref=e1104]
+                        - button [ref=e1107] [cursor=pointer]:
+                          - img [ref=e1108]
+                  - row "O operator1 op1@example.com operator active" [ref=e1111]:
+                    - cell "O operator1" [ref=e1112]:
+                      - generic [ref=e1113]:
+                        - generic [ref=e1115]: O
+                        - generic [ref=e1116]: operator1
+                    - cell "op1@example.com" [ref=e1117]
+                    - cell "operator" [ref=e1118]
+                    - cell "active" [ref=e1119]
+                    - cell [ref=e1120]:
+                      - generic [ref=e1121]:
+                        - button [ref=e1122] [cursor=pointer]:
+                          - img [ref=e1123]
+                        - button [ref=e1126] [cursor=pointer]:
+                          - img [ref=e1127]
+                  - row "D developer1 dev1@example.com developer active" [ref=e1130]:
+                    - cell "D developer1" [ref=e1131]:
+                      - generic [ref=e1132]:
+                        - generic [ref=e1134]: D
+                        - generic [ref=e1135]: developer1
+                    - cell "dev1@example.com" [ref=e1136]
+                    - cell "developer" [ref=e1137]
+                    - cell "active" [ref=e1138]
+                    - cell [ref=e1139]:
+                      - generic [ref=e1140]:
+                        - button [ref=e1141] [cursor=pointer]:
+                          - img [ref=e1142]
+                        - button [ref=e1145] [cursor=pointer]:
+                          - img [ref=e1146]
+                  - row "G guest guest@example.com guest inactive" [ref=e1149]:
+                    - cell "G guest" [ref=e1150]:
+                      - generic [ref=e1151]:
+                        - generic [ref=e1153]: G
+                        - generic [ref=e1154]: guest
+                    - cell "guest@example.com" [ref=e1155]
+                    - cell "guest" [ref=e1156]
+                    - cell "inactive" [ref=e1157]
+                    - cell [ref=e1158]:
+                      - generic [ref=e1159]:
+                        - button [ref=e1160] [cursor=pointer]:
+                          - img [ref=e1161]
+                        - button [ref=e1164] [cursor=pointer]:
+                          - img [ref=e1165]
+  - generic [ref=e13]:
+    - img [ref=e15]
+    - button "Open Tanstack query devtools" [ref=e63] [cursor=pointer]:
+      - img [ref=e64]
